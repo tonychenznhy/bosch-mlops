@@ -45,7 +45,7 @@ class ModelTrainPipelineTest(unittest.TestCase):
         model_params = {'n_estimators': 4,
                         'max_depth': 4,
                         'min_samples_leaf': 1,
-                        'max_features': 'auto',
+                        'max_features': None,
                         'random_state': 42}
 
         pipeline = ModelTrainPipeline.create_train_pipeline(model_params=model_params)
