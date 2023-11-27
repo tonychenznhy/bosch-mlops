@@ -42,6 +42,8 @@ jobs:
 
       - name: Deploy integration test [staging environment]
         run: |
+          echo ${{ secrets.DATABRICKS_STAGING_HOST }}
+          echo ${{ secrets.DATABRICKS_STAGING_TOKEN }}
           dbx deploy --jobs=STAGING-telco-churn-sample-integration-test --environment=staging --files-only
 
       - name: Run integration test [staging environment]
