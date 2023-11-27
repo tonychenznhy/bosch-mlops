@@ -16,7 +16,7 @@ jobs:
 
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_STAGING_HOST123 }}
-      DATABRICKS_TOKEN:  ${{ secrets.DATABRICKS_STAGING_TOKEN123 }}
+      DATABRICKS_TOKEN:  ${{ secrets.DATABRICKS_STAGING_TOKEN }}
 
     steps:
       - uses: actions/checkout@v3
@@ -42,7 +42,8 @@ jobs:
 
       - name: Deploy integration test [staging environment]
         run: |
-          echo ${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'
+          echo ${{secrets.DATABRICKS_STAGING_TOKEN}} | sed 's/./& /g'
+          echo ${ DATABRICKS_TOKEN }
           dbx deploy --jobs=STAGING-telco-churn-sample-integration-test --environment=staging --files-only
 
       - name: Run integration test [staging environment]
