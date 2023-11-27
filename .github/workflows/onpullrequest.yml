@@ -15,7 +15,7 @@ jobs:
       max-parallel: 4
 
     env:
-      DATABRICKS_HOST: ${{ secrets.DATABRICKS_STAGING_HOST123 }}
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_STAGING_HOST }}
       DATABRICKS_TOKEN:  ${{ secrets.DATABRICKS_STAGING_TOKEN }}
 
     steps:
